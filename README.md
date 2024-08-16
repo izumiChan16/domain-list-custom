@@ -1,6 +1,6 @@
 # 文件说明
 ## 1. 文件类型
-Clash rule-set 规则集文件（.list 格式），适用于 `behavior: classical` 且 `format: text` 的使用场景，包含 `DOMAIN`、`DOMAIN-SUFFIX`、`DOMAIN-KEYWORD`、`DOMAIN-REGEX` 和 `PROCESS-NAME` 规则类型
+Clash rule-set 规则集文件（.list 格式），包含 `DOMAIN`、`DOMAIN-SUFFIX`、`DOMAIN-KEYWORD`、`DOMAIN-REGEX` 和 `PROCESS-NAME` 规则类型，适用于 `behavior: classical` 且 `format: text` 的使用场景
 ## 2. 数据源
 ① 每天凌晨 2 点（北京时间 UTC+8）自动构建  
 ② **`fakeip-filter.list`** 源采用 [ShellCrash/public/fake_ip_filter.list](https://github.com/juewuy/ShellCrash/blob/dev/public/fake_ip_filter.list)  
