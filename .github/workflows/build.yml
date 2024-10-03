@@ -24,12 +24,15 @@ jobs:
           echo "foreign_media1=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list" >> $GITHUB_ENV
           echo "foreign_media2=https://raw.githubusercontent.com/izumiChan16/clash_reg/master/rule/pikpak.list" >> $GITHUB_ENV
           echo "emby=https://raw.githubusercontent.com/izumiChan16/clash_reg/master/rule/emby.list" >> $GITHUB_ENV
-          echo "vpsdirect=https://raw.githubusercontent.com/izumiChan16/clash_reg/master/rule/vpsdirect.list" >> $GITHUB_ENV
-          
         shell: bash
 
       - name: Checkout codebase
         uses: actions/checkout@master
+
+      - name: Create directories
+        run: |
+          mkdir -p ./domains
+          mkdir -p ./tmp
 
       - name: Generate Spotify
         run: |
@@ -66,10 +69,6 @@ jobs:
       - name: Generate Emby
         run: |
           curl -sSL ${emby} | grep -Ev '#|IP-' | sort --ignore-case > ./domains/emby.list
-
-      - name: Generate vpsdirect
-        run: |
-          curl -sSL ${vpsdirect} | grep -Ev '#|IP-' | sort --ignore-case > ./domains/vpsdirect.list
 
       - name: Release and upload `clash` assets
         uses: svenstaro/upload-release-action@v2
